@@ -5,7 +5,7 @@ const messages = [
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
-export default function App() {
+export default function App_v1() {
   return (
     <div>
       <Steps />
