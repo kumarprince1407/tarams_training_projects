@@ -1,3 +1,4 @@
+//Login.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { initializeApp } from "firebase/app";
@@ -20,11 +21,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isUserExist, setUserExist] = useState(false);
   const [isEmailUsed, setIsEmailUsed] = useState(false);
+  const [emailValid, setEmailValid] = useState(true);
+  const [passwordValid, setPasswordValid] = useState(true);
+
   const auth = getAuth();
 
   console.log(auth);
+
+  const validation = (fieldName, value) => {
+    switch (fieldName) {
+      case "email":
+        return value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+
+      case "password":
+        return value.length >= 6;
+      default:
+        break;
+    }
+  };
+
   const ctaClickHandler = (e) => {
     e.preventDefault();
+
+    //Performing email and password validation
+    if (!validation("email", email) || !validation("password", password)) {
+      setEmailValid(validation("email", email));
+      setPasswordValid(validation("password", password));
+      return;
+    }
+
     if (page) {
       signInWithEmailAndPassword(auth, email, password)
         .then((auth) => {
@@ -68,6 +93,10 @@ const Login = () => {
             type="email"
             placeholder="Email"
           />
+          {!emailValid && (
+            <p className="text-danger">Please enter a valid email</p>
+          )}
+
           <input
             className="form-control"
             value={password}
@@ -75,6 +104,10 @@ const Login = () => {
             type="password"
             placeholder="Password"
           />
+          {!passwordValid && (
+            <p className="text-danger">Please enter a valid password.</p>
+          )}
+
           <button
             className="btn btn-danger btn-block"
             onClick={ctaClickHandler}
