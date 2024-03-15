@@ -1,44 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-family: "Nunito", sans-serif;
-  font-size: 22px;
-  color: #fff;
-}
-
 body {
-  min-height: 100vh;
-  /* background-color: dodgerblue; */
   background-color: rgb(129, 129, 233);
 }
 
-.App {
+.loginContainer {
+  display: flex;
+  /* justify-content: center; */
+  margin-left: 35%;
+  /* margin-top: 10%; */
+}
+
+.loginContainer2 {
+  background-color: rgb(133, 165, 235);
+  margin-top: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
+  padding: 10px;
+  width: 440px;
+  height: 550px;
+  border: 1px solid gray;
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 10px;
 }
 
-section {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-form {
+.loginRegisterForm {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -48,10 +37,10 @@ form {
 
 a,
 a:visited {
-  color: #fff;
+  color: blue;
 }
 
-input[type="text"],
+/* input[type="text"],
 input[type="password"],
 button,
 textarea {
@@ -59,7 +48,20 @@ textarea {
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
+} */
+
+/* In Login.jsx and Register.jsx, apply a specific class to the elements you want to style */
+.login-input,
+.register-input,
+.login-button,
+.register-button {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
 }
+
+/* Apply the specific class names to the elements in Login.jsx and Register.jsx */
 
 label,
 button {
@@ -68,6 +70,12 @@ button {
 
 button {
   padding: 0.5rem;
+}
+
+form input,
+form label {
+  margin-bottom: 10px;
+  vertical-align: middle;
 }
 
 .instructions {
@@ -102,7 +110,6 @@ button {
   color: red;
   margin-left: 0.25rem;
 }
-
 .errmsg {
   background-color: lightpink;
   color: firebrick;
@@ -117,6 +124,6 @@ button {
 
 footer {
   margin-top: auto; /*apush the footer to the bottom*/
-  background-color: #f1f1f1;
+  background-color: #ece5e5;
   padding: 10px;
 }
