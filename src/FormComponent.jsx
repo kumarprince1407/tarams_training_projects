@@ -34,7 +34,7 @@ function FormComponent({ initialUserInput, handleFunctionClick }) {
     }
 
     setFormValid(true);
-    //try-catch block removed
+    //try-catch removed
     let response = await handleFunctionClick(userInput);
     if (response.status === 200) {
       console.log("Data sent successfully");
