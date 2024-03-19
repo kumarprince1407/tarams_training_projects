@@ -15,12 +15,9 @@ const Router = () => {
         <Route path="/signup" element={<Register />} />
         <Route path="/" element={<Login />}></Route>
         <Route path="/home/:username" element={<HomePage />}></Route>
-        <Route path="/add" element={<ToDoFunctionalities />}></Route>
+        <Route path="/add" element={<ToDoList />}></Route>
         {/* <Route path="/edit/:id" element={<EditPage />}></Route> */}
-        <Route
-          path="/edit/:username/:id"
-          element={<ToDoFunctionalities />}
-        ></Route>
+        <Route path="/edit/:username/:id" element={<EditPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

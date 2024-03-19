@@ -55,6 +55,23 @@ app.get("/todolist/user/:username", (req, res) => {
   res.json(userTasks);
 });
 
+//Get a particular task
+app.get("/todolist/:username/:id", (req, res) => {
+  const idToFetch = parseInt(req.params.id);
+  const usernameToFetch = req.params.username;
+
+  // Find the task with the specified id and username
+  const itemToFetch = todolistData.find(
+    (item) => item.id === idToFetch && item.username === usernameToFetch
+  );
+
+  if (itemToFetch) {
+    res.json(itemToFetch);
+  } else {
+    res.status(404).send("Task not found");
+  }
+});
+
 app.post("/todolist/:username", (req, res) => {
   const receivedData = req.body;
   console.log("Received data:", receivedData);
